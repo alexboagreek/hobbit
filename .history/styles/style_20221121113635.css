@@ -1,0 +1,10 @@
+@import 'normalize.css';
+@import 'default.css';
+
+.app {
+    display: flex;
+}
+
+.panel {
+    background-color: @fff;
+}

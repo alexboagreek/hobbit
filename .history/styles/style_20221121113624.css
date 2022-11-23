@@ -1,0 +1,6 @@
+@import 'normalize.css';
+@import 'default.css';
+
+.app {
+    display: flex;
+}

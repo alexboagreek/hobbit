@@ -1,0 +1,15 @@
+@import 'normalize.css';
+@import 'default.css';
+
+.app {
+    display: flex;
+}
+
+.logo {
+    margin-bottom: 50px;
+}
+
+.panel {
+    background-color: #fff;
+    min-height: 100vh;
+}
