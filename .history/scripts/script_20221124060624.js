@@ -14,10 +14,4 @@ function loadData() {
     }
 }
 
-function saveData() {
-    localStorage.setItem(HOBBIT_KEY, JSON.stringify(hobbits));
-}
-
-(() => {
-    loadData();
-})();
+function saveData

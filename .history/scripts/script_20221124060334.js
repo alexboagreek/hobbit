@@ -10,14 +10,6 @@ function loadData() {
     const hobbitArray = JSON.parse(hobbitsString);
 
     if(Array.isArray(hobbitArray)) {
-        hobbits = hobbitArray;
+        habbits = hobbitArray
     }
 }
-
-function saveData() {
-    localStorage.setItem(HOBBIT_KEY, JSON.stringify(hobbits));
-}
-
-(() => {
-    loadData();
-})();

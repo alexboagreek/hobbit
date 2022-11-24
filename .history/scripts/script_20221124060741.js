@@ -20,4 +20,4 @@ function saveData() {
 
 (() => {
     loadData();
-})();
+})()

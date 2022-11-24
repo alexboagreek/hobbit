@@ -15,9 +15,5 @@ function loadData() {
 }
 
 function saveData() {
-    localStorage.setItem(HOBBIT_KEY, JSON.stringify(hobbits));
+    localStorage.setItem(HOBBIT_KEY)
 }
-
-(() => {
-    loadData();
-})();
