@@ -125,7 +125,7 @@
     transition: all 0.4s ease-in-out;
 }
 
-.habbit {
+.hobbit {
     display: flex;
     background-color: #FFFFFF;
     border-radius: 10px;
@@ -133,7 +133,7 @@
     margin-bottom: 12px;
 }
 
-.habbit__day {
+.hobbit__day {
     background-color: #FBFAFF;
     border-radius: 10px 0 0 10px;
     border-right: 1px solid #E7EBFB;
@@ -143,24 +143,24 @@
     min-width: 150px;
 }
 
-.habbit__comment {
+.hobbit__comment {
     font-size: 16px;
     line-height: 16px;
     padding: 20px 25px;
 }
 
-.habbit__delete {
+.hobbit__delete {
     margin-left: auto;
     margin-right: 20px;
     border-radius: 5px;
     padding: 5px;
 }
 
-.habbit__delete:hover {
+.hobbit__delete:hover {
     background-color: #EFF2FF;
 }
 
-.habbit__form {
+.hobbit__form {
     position: relative;
     display: flex;
     gap: 15px;
@@ -178,13 +178,9 @@ input {
 input::placeholder {
     color: #8899A8;
 }
-
-/** сработает, когда инпут в форме будет пустой */
-
 input.error {
-    border: 1px solid rgb(185, 15, 15);
+    border: 1px solid red
 }
-
 .input_icon {
     padding-left: 45px;
 }
@@ -196,7 +192,7 @@ input.error {
     left: 45px;
 }
 
-.habbit__add {
+.hobbit__add {
     background-color: #EDECFE;
     border-radius: 9px;
     font-size: 13px;
@@ -205,6 +201,6 @@ input.error {
     padding: 14px 30px;
 }
 
-.habbit__add:hover {
+.hobbit__add:hover {
     background-color: #EFF2FF;
 }

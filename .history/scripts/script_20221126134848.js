@@ -49,7 +49,7 @@ function rerenderMenu(activeHabbit) {
             element.setAttribute('menu-habbit-id', habbit.id);
             element.classList.add('menu__item');
             element.addEventListener('click', () => rerender(habbit.id));
-            element.innerHTML = `<img src="assets/icons/${habbit.icon}.svg" alt="${habbit.name}" />`;
+            element.innerHTML = `<img src="assets/icons/${habbit.icon}.svg" alt="${habbit.name}" >`;
 
             if (activeHabbit.id === habbit.id) {
                 element.classList.add('menu__item_active');
@@ -78,11 +78,11 @@ function rerenderContent(activeHabbit) {
     page.content.daysContainer.innerHTML = '';
     for (const index in activeHabbit.days) {
         const element = document.createElement('div');
-        element.classList.add('habbit');
+        element.classList.add('hobbit');
         element.innerHTML = `
-            <div class="habbit__day">День ${Number(index) + 1}</div>
-            <div class="habbit__comment">${activeHabbit.days[index].comment}</div>
-            <button class="habbit__delete" onclick="deleteDay(${index})">
+            <div class="hobbit__day">День ${Number(index) + 1}</div>
+            <div class="hobbit__comment">${activeHabbit.days[index].comment}</div>
+            <button class="hobbit__delete">
                 <img src="assets/icons/basket.svg" alt="delete basket icon ${index + 1}">
             </button>
         `;
@@ -115,37 +115,13 @@ function addDays(event) {
         form['comment'].classList.add('error');
     }
     habbits = habbits.map(habbit => {
-        if (habbit.id === globalActiveHabbitId) {
-            return {
-                ...habbit,
-                days: habbit.days.concat([{ comment }])
-            };
-        }
-        return habbit;
+        ша 
     });
-  
     form['comment'].value = '';
-    rerender(globalActiveHabbitId);
-    saveData();
 }
 
-function deleteDay(index) {
-    habbits = habbits.map(habbit => {
-        if (habbit.id === globalActiveHabbitId) {
-            habbit.days.splice(index, 1);
-            return {
-                ...habbit,
-                days: habbit.days
-            };
-        }
-        return habbit;
-    });
-    rerender(globalActiveHabbitId);
-    saveData();
-}
 
 /* init */
-
 (() => {
 	loadData();
 	rerender(habbits[0].id);

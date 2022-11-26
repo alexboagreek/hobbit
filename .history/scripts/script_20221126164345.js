@@ -145,7 +145,6 @@ function deleteDay(index) {
 }
 
 /* init */
-
 (() => {
 	loadData();
 	rerender(habbits[0].id);

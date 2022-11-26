@@ -134,18 +134,14 @@ function deleteDay(index) {
         if (habbit.id === globalActiveHabbitId) {
             habbit.days.splice(index, 1);
             return {
-                ...habbit,
-                days: habbit.days
-            };
+                ...ha
+            }
         }
         return habbit;
     });
-    rerender(globalActiveHabbitId);
-    saveData();
 }
 
 /* init */
-
 (() => {
 	loadData();
 	rerender(habbits[0].id);

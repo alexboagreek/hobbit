@@ -140,12 +140,9 @@ function deleteDay(index) {
         }
         return habbit;
     });
-    rerender(globalActiveHabbitId);
-    saveData();
 }
 
 /* init */
-
 (() => {
 	loadData();
 	rerender(habbits[0].id);

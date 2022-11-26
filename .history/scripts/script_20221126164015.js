@@ -128,24 +128,11 @@ function addDays(event) {
     rerender(globalActiveHabbitId);
     saveData();
 }
-
 function deleteDay(index) {
-    habbits = habbits.map(habbit => {
-        if (habbit.id === globalActiveHabbitId) {
-            habbit.days.splice(index, 1);
-            return {
-                ...habbit,
-                days: habbit.days
-            };
-        }
-        return habbit;
-    });
-    rerender(globalActiveHabbitId);
-    saveData();
+    
 }
 
 /* init */
-
 (() => {
 	loadData();
 	rerender(habbits[0].id);

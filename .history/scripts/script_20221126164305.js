@@ -136,16 +136,13 @@ function deleteDay(index) {
             return {
                 ...habbit,
                 days: habbit.days
-            };
+            }
         }
         return habbit;
     });
-    rerender(globalActiveHabbitId);
-    saveData();
 }
 
 /* init */
-
 (() => {
 	loadData();
 	rerender(habbits[0].id);

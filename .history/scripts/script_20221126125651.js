@@ -2,7 +2,6 @@
 
 let habbits = [];
 const HABBIT_KEY = 'HABBIT_KEY';
-let globalActiveHabbitId;
 
 /* page */
 
@@ -49,7 +48,7 @@ function rerenderMenu(activeHabbit) {
             element.setAttribute('menu-habbit-id', habbit.id);
             element.classList.add('menu__item');
             element.addEventListener('click', () => rerender(habbit.id));
-            element.innerHTML = `<img src="assets/icons/${habbit.icon}.svg" alt="${habbit.name}" />`;
+            element.innerHTML = `<img src="assets/icons/${habbit.icon}.svg" alt="${habbit.name}" >`;
 
             if (activeHabbit.id === habbit.id) {
                 element.classList.add('menu__item_active');
@@ -66,6 +65,7 @@ function rerenderMenu(activeHabbit) {
     }
 }
 
+
 function rerenderHead(activeHabbit) {
     page.header.h1.innerText = activeHabbit.name;
     const progress = activeHabbit.days.length / activeHabbit.target > 1 ? 100
@@ -78,11 +78,11 @@ function rerenderContent(activeHabbit) {
     page.content.daysContainer.innerHTML = '';
     for (const index in activeHabbit.days) {
         const element = document.createElement('div');
-        element.classList.add('habbit');
+        element.classList.add('hobbit');
         element.innerHTML = `
-            <div class="habbit__day">День ${Number(index) + 1}</div>
-            <div class="habbit__comment">${activeHabbit.days[index].comment}</div>
-            <button class="habbit__delete" onclick="deleteDay(${index})">
+            <div class="hobbit__day">День ${Number(index) + 1}</div>
+            <div class="hobbit__comment">${activeHabbit.days[index].comment}</div>
+            <button class="hobbit__delete">
                 <img src="assets/icons/basket.svg" alt="delete basket icon ${index + 1}">
             </button>
         `;
@@ -92,7 +92,6 @@ function rerenderContent(activeHabbit) {
 }
 
 function rerender(activeHabbitId) {
-    globalActiveHabbitId = activeHabbitId;
 	const activeHabbit = habbits.find(habbit => habbit.id === activeHabbitId);
 
     if (!activeHabbit) {
@@ -106,46 +105,13 @@ function rerender(activeHabbitId) {
 /* work with days */
 
 function addDays(event) {
-    const form = event.target;
     event.preventDefault();
-    const data = new FormData(form);
-    const comment = data.get('comment'); 
-    form['comment'].classList.remove('error');
-    if (!comment) {
-        form['comment'].classList.add('error');
-    }
-    habbits = habbits.map(habbit => {
-        if (habbit.id === globalActiveHabbitId) {
-            return {
-                ...habbit,
-                days: habbit.days.concat([{ comment }])
-            };
-        }
-        return habbit;
-    });
-  
-    form['comment'].value = '';
-    rerender(globalActiveHabbitId);
-    saveData();
+    const data = new FormData(event.target);
+    const comment = data.get('comment'));
 }
 
-function deleteDay(index) {
-    habbits = habbits.map(habbit => {
-        if (habbit.id === globalActiveHabbitId) {
-            habbit.days.splice(index, 1);
-            return {
-                ...habbit,
-                days: habbit.days
-            };
-        }
-        return habbit;
-    });
-    rerender(globalActiveHabbitId);
-    saveData();
-}
 
 /* init */
-
 (() => {
 	loadData();
 	rerender(habbits[0].id);

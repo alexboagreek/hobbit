@@ -10,7 +10,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;600&family=Nunito:wght@300;500;600;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/style.css">
     <title>Hobbit App</title>
-    <script src="scripts/script.js" defer></script>
   </head>
   <body>
     <section>
@@ -53,14 +52,14 @@
                         <div class="habbit">
                             <div class="habbit__day">День 1</div>
                             <div class="habbit__comment">Первый подход всегда дается тяжело</div>
-                            <button class="habbit__delete">
+                            <button class="hobbit__delete">
                                 <img src="assets/icons/basket.svg" alt="delete basket icon">
                             </button>
                         </div>
 
                         <div class="habbit">
                             <div class="habbit__day">День 2</div>
-                            <form class="habbit__form" onsubmit="addDays(event)">
+                            <form class="hobbit__form" onsubmit="addDays(event)">
                                 <input
                                     name="comment" 
                                     class="input_icon" 
@@ -75,6 +74,6 @@
             </div>
         </div>
     </section>
-   
+    <script src="scripts/script.js"></script>
   </body>
 </html>
