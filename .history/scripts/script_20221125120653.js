@@ -11,10 +11,7 @@ const page = {
         h1: document.querySelector('.header__title'),
         progressPercent: document.querySelector('.progress__percent'),
         progressCoverBar: document.querySelector('.progress__cover-bar')
-    },
-    content: {
-        daysContainer: document.getElementById('days'),
-        nextDay: document.querySelector('.habbit__day'),
+
     }
 };
 
@@ -36,6 +33,10 @@ function saveData() {
 /* render */
 
 function rerenderMenu(activeHabbit) {
+
+    if (!activeHabbit) {
+        return;
+    }
 
     for (const habbit of habbits) {
         const existed = document.querySelector(`[menu-habbit-id="${habbit.id}"]`);
@@ -65,50 +66,21 @@ function rerenderMenu(activeHabbit) {
     }
 }
 
-
 function rerenderHead(activeHabbit) {
-    page.header.h1.innerText = activeHabbit.name;
-    const progress = activeHabbit.days.length / activeHabbit.target > 1 ? 100
-        : activeHabbit.days.length / activeHabbit.target * 100;
-    page.header.progressPercent.innerText =progress.toFixed(0) + '%';
-    page.header.progressCoverBar.setAttribute('style', `width: ${progress}%`);
-}
-
-function rerenderContent(activeHabbit) {
-    page.content.daysContainer.innerHTML = '';
-    for (const index in activeHabbit.days) {
-        const element = document.createElement('div');
-        element.classList.add('hobbit');
-        element.innerHTML = `
-            <div class="hobbit__day">День ${Number(index) + 1}</div>
-            <div class="hobbit__comment">${activeHabbit.days[index].comment}</div>
-            <button class="hobbit__delete">
-                <img src="assets/icons/basket.svg" alt="delete basket icon ${index + 1}">
-            </button>
-        `;
-        page.content.daysContainer.appendChild(element);
+    if (!activeHabbit) {
+        return;
     }
-    page.content.nextDay.innerHTML = `День ${activeHabbit.days.length + 1}`;
+    page.header.h1.innerText = activeHabbit.name;
+    const progress = activeHabbit.days
 }
 
 function rerender(activeHabbitId) {
 	const activeHabbit = habbits.find(habbit => habbit.id === activeHabbitId);
-
-    if (!activeHabbit) {
-        return;
-    }
 	rerenderMenu(activeHabbit);
     rerenderHead(activeHabbit);
-    rerenderContent(activeHabbit);
 }
 
-/* work with days */
 
-function addDays(event) {
-    event.preventDefault();
-    const data = new FormData(event.target);
-    console.log(data.get('comment'));
-}
 
 
 /* init */

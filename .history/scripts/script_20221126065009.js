@@ -13,8 +13,7 @@ const page = {
         progressCoverBar: document.querySelector('.progress__cover-bar')
     },
     content: {
-        daysContainer: document.getElementById('days'),
-        nextDay: document.querySelector('.habbit__day'),
+        
     }
 };
 
@@ -67,8 +66,10 @@ function rerenderMenu(activeHabbit) {
 
 
 function rerenderHead(activeHabbit) {
+  
     page.header.h1.innerText = activeHabbit.name;
-    const progress = activeHabbit.days.length / activeHabbit.target > 1 ? 100
+    const progress = activeHabbit.days.length / activeHabbit.target > 1
+        ? 100
         : activeHabbit.days.length / activeHabbit.target * 100;
     page.header.progressPercent.innerText =progress.toFixed(0) + '%';
     page.header.progressCoverBar.setAttribute('style', `width: ${progress}%`);
@@ -83,7 +84,7 @@ function rerenderContent(activeHabbit) {
             <div class="hobbit__day">День ${Number(index) + 1}</div>
             <div class="hobbit__comment">${activeHabbit.days[index].comment}</div>
             <button class="hobbit__delete">
-                <img src="assets/icons/basket.svg" alt="delete basket icon ${index + 1}">
+                <img src="assets/icons/backet.svg" alt="delete basket icon ${index + 1}">
             </button>
         `;
         page.content.daysContainer.appendChild(element);
@@ -99,17 +100,7 @@ function rerender(activeHabbitId) {
     }
 	rerenderMenu(activeHabbit);
     rerenderHead(activeHabbit);
-    rerenderContent(activeHabbit);
 }
-
-/* work with days */
-
-function addDays(event) {
-    event.preventDefault();
-    const data = new FormData(event.target);
-    console.log(data.get('comment'));
-}
-
 
 /* init */
 (() => {

@@ -49,25 +49,21 @@
                     </div>
                 </header>
                 <main class="main">
-                    <div id="days">
+                    <div id="">
                         <div class="hobbit">
                             <div class="hobbit__day">День 1</div>
                             <div class="hobbit__comment">Первый подход всегда дается тяжело</div>
                             <button class="hobbit__delete">
-                                <img src="assets/icons/basket.svg" alt="delete basket icon">
+                                <img src="assets/icons/backet.svg" alt="delete basket icon">
                             </button>
                         </div>
 
                         <div class="hobbit">
                             <div class="hobbit__day">День 2</div>
-                            <form class="hobbit__form" onsubmit="addDays(event)">
-                                <input
-                                    name="comment" 
-                                    class="input_icon" 
-                                    type="text" 
-                                    placeholder="Комментарий">
+                            <form class="hobbit__form">
+                                <input class="input_icon" type="text" placeholder="Комментарий">
                                 <img class="input__form-icon" src="assets/icons/comment.svg" alt="comment icon">
-                                <button class="hobbit__add" type="submit">Готово</button>
+                                <button class="hobbit__add">Готово</button>
                             </form>
                         </div>
                     </div>
